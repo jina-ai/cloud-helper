@@ -5,13 +5,13 @@ from jinacld_tools.aws.logger import get_logger
 from jinacld_tools.aws.client import AWSClientWrapper
 
 
-class S3:
+class S3Bucket:
     """Wrapper around boto3 to upload to/download from S3 bucket
     """
 
-    def __init__(self, bucket: str):
+    def __init__(self, bucket_name: str):
         self._client = AWSClientWrapper(service='s3').client
-        self._bucket = bucket
+        self._bucket = bucket_name
         self._logger = get_logger(self.__class__.__name__)
 
     def add(self, path: str, key: str):
