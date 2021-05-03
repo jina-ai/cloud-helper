@@ -17,7 +17,7 @@ class S3:
     def add(self, path: str, key: str):
         if not Path(path).exists():
             self._logger.error(f'Invalid path: {path}! Nothing to upload!')
-            return
+            raise FileNotFoundError(path)
         try:
             self._logger.info(f'Uploading object from `{path}` to S3 bucket `{self._bucket}` key `{key}`')
             for filename in glob.iglob(str(path) + '**/**', recursive=True):
