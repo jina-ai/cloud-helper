@@ -7,7 +7,7 @@ setup(
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     include_package_data=True,
-    version="0.0.0",
+    version="0.0.1",
     description="Library of helper tools to interact with cloud resources.",
     install_requires=open("requirements.txt").readlines(),
     setup_requires=["wheel"],
