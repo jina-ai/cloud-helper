@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from pathlib import Path
 from jinacld_tools.aws.logger import get_logger
 from jinacld_tools.aws.client import AWSClientWrapper
@@ -12,6 +13,11 @@ accountID = config["ACCOUNT_ID"]
 instanceID = config["INSTANCE_ID"]
 ACCESS_KEY_ID = config["ACCESS_KEY_ID"]
 SECRET_ACCESS_KEY = config["SECRET_ACCESS_KEY"]
+=======
+from ..client import AWSClientWrapper
+from ..logger import get_logger
+
+>>>>>>> 55dbc85580e0e8cab168ccdef21a17e3624026b9
 
 class CloudWatch:
     """Wrapper around boto3 to fetch CloudWatch logs
@@ -21,6 +27,7 @@ class CloudWatch:
         self.logger = get_logger(self.__class__.__name__)
         self._client_wrapper = AWSClientWrapper(service='cloudwatch')
         self._client = self._client_wrapper.client
+<<<<<<< HEAD
         self.metrics = "" # url of metrics collected
 
     def fetch(self, ec2ARN):
@@ -65,3 +72,13 @@ cloudwatcher = CloudWatch()
 ec2ARN = "arn:aws:ec2:us-east-2:"+accountID+":"+instanceID
 cloudwatcher.fetch(ec2ARN)
 cloudwatcher.store()
+=======
+
+    def fetch(self,ec2ARN):
+        # to do : fetch cloudwatch metrics
+        self.metrics = ""
+
+    def store(self):
+        # to do : store metrics with s3
+        pass
+>>>>>>> 55dbc85580e0e8cab168ccdef21a17e3624026b9
