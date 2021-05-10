@@ -66,17 +66,16 @@ class CloudWatch:
             Dimensions=[
                 {
                     'Name': 'instance-id',
-                    'Value': 'instanceID'
+                    'Value': instanceID
                 },
             ],
             MetricName='CPUUtilization',
-            StartTime=datetime.now() - timedelta(days=7),
-            EndTime=datetime.now(),
-            Period=86400, #seconds in one day
+            StartTime='2021-05-08T23:18:00', #datetime.now() - timedelta(days=7),
+            EndTime='2021-05-09T23:18:00', #datetime.now(),
+            Period=3600, #seconds in one hour
             Statistics=[
-                'Average'
-            ],
-            Unit='Bytes'
+                'Maximum'
+            ]
         )
 
         print(response)
