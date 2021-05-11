@@ -1,3 +1,4 @@
 pytest
 bump2version
 python-dotenv
+pickle
