@@ -1,8 +1,5 @@
-from pathlib import Path
-from datetime import datetime, timedelta
 from jinacld_tools.aws.logger import get_logger
 from jinacld_tools.aws.client import AWSClientWrapper
-from ec2 import EC2
 
 import boto3
 import os
@@ -30,8 +27,7 @@ class CloudWatch:
         '''
         _, _, _, region, _, instance_id = ec2_arn.split(":")
 
-        cloudwatch = boto3.client('cloudwatch', region_name=region,
-                aws_access_key_id=ACCESS_KEY_ID, aws_secret_access_key=SECRET_ACCESS_KEY)
+        cloudwatch = AWSClientWrapper(service='cloudwatch').client
 
         responses = []
         ec2 = boto3.resource('ec2', region_name=region,
