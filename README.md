@@ -38,6 +38,6 @@ $ pre-commit install --install-hooks
 This library uses bump version to manage version updates on releases.
 Depending on the release type (patch, minor, major), run:
 ```
-$ bump2version path --commit --tag
+$ bump2version patch --commit --tag
 ```
 to update the version, commit the changes and tag create a new version tag.
